@@ -20,12 +20,12 @@ public class Area extends State {
 	}
 	@Override
 	public String toString() {
-		return "AreaName :" + areaName +"\r\n"+ "ZipCode:" + zipCode +"\r\n"+ "StateName:" + super.getStateName() +"\r\n"+ "countryName:"
+		return "AreaName :" + areaName +"  ZipCode:" + zipCode + "  StateName:" + super.getStateName() +"  countryName:"
 				+ countryName ;
 	}
 	
 	public Area(String countryName,String stateName,String areaName, int zipCode) {
-		super.countryName=countryName;
+		super.setCountryName(countryName);
 		super.setStateName(stateName);
 		this.areaName = areaName;
 		this.zipCode = zipCode;

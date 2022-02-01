@@ -11,7 +11,7 @@ public class ZipService2 implements ZipService1{
 
 	Scanner scanner=new Scanner(System.in);
 	static  Map<Integer,Area> map;
-	static {
+	 {
 		 map=new HashMap() ;
 		 map.put(507130, new Area("India", "Andhra Pradesh","East Godavari", 507130));
 		 map.put(521175,new Area("India", "Andhra Pradesh","Krishna",521175));
@@ -35,7 +35,7 @@ public class ZipService2 implements ZipService1{
 					System.out.println("please enter a valid zip code which in between 500000 and 600000");
 					zipCode=scanner.nextInt();
 				}
-			    System.out.println(getByZipCode(scanner.nextInt()));
+			    System.out.println(getByZipCode(zipCode));
 			    break;
 		 case 2:
 			    map.forEach((k,v)->System.out.println(v));
@@ -47,7 +47,15 @@ public class ZipService2 implements ZipService1{
 				    System.out.println("This Zip code is already exist, pls enter new one");
 				    zipCode=scanner.nextInt();
 				    }
-			    //krewkjrhkwerhqke
+			    System.out.println("Enter country name");
+			    String countryName=scanner.next();
+			    System.out.println("Enter state name");
+			    String stateName=scanner.next();
+			    System.out.println("Enter area name");
+			    String areaName=scanner.next();			  
+			    map.put(zipCode,new Area(countryName,stateName,areaName,zipCode));
+			    System.out.println("record entry successfull");
+
 			    break;
 		}
 	}
