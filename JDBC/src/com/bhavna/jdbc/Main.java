@@ -2,8 +2,6 @@ package com.bhavna.jdbc;
 
 import java.sql.Date;
 import java.util.Scanner;
-
-
 //Create Employee,Department tables in DB, Should create the relations PrimaryKey ,foreign key
 //with these tables and make sure use data types like bigint,varchar,date/datetime.
 //
@@ -25,9 +23,7 @@ public class Main {
 			System.out.println("4. To update employee");
 			System.out.println("5. get emp count having sal>30000 ");
 			System.out.println("6. Close SQL Connection");
-			ed.selectByOption(scanner.nextInt());
-
-			
+			ed.selectByOption(scanner.nextInt());		
 }
 	}
 
