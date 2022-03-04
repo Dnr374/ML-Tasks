@@ -5,8 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.bhavna.dao.BankDao;
+import com.bhavna.dao.CustomerDao;
 import com.bhavna.entity.Bank;
 import com.bhavna.entity.Customer;
 
@@ -17,24 +16,24 @@ import com.bhavna.entity.Customer;
 @Service
 public class BankServiceImpl implements BankService {
 	 @Autowired
-	    private BankDao bankDAO;
+	    private CustomerDao customerDAO;
 
 	    @Override
 	    @Transactional
 	    public List < Customer > getCustomers() {
-	        return bankDAO.getCustomers();
+	        return customerDAO.getCustomers();
 	    }
 
 	    @Override
 	    @Transactional
 	    public void saveCustomer(Bank bank) {
-	    	bankDAO.saveCustomer(bank);
+	    	customerDAO.saveCustomer(bank);
 	    }
 
 	    @Override
 	    @Transactional
 	    public Bank getCustomer(int theId) {
-	        return bankDAO.getCustomerById(theId);
+	        return customerDAO.getCustomerById(theId);
 	    }
 
 }

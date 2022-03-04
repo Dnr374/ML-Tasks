@@ -16,7 +16,7 @@ import com.bhavna.entity.Bank;
 import com.bhavna.entity.Customer;
 
 @Repository
-public class BankDao {
+public class CustomerDao {
 	
 	 @Autowired
 	    private SessionFactory sessionFactory;
