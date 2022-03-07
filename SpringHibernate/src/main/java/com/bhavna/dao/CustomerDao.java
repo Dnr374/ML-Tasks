@@ -28,20 +28,37 @@ public class CustomerDao {
 	        CriteriaQuery < Customer > cq = cb.createQuery(Customer.class);
 	        Root < Customer > root = cq.from(Customer.class);
 	        cq.select(root);
-	        Query query = session.createQuery(cq);
-	        return query.getResultList();
+	        Query query = session.createQuery(cq);	        
+	       List result=  query.getResultList();
+	       session.close();
+	       return result;
 	    }
 
 
-	    public void saveCustomer(Bank theCustomer) {
-	        Session currentSession = sessionFactory.getCurrentSession();
-	        currentSession.save(theCustomer);
+	    public void saveCustomer(Customer theCustomer) {
+	        Session session = sessionFactory.openSession();
+	        session.beginTransaction();
+	        session.save(theCustomer);
+	        session.getTransaction().commit();
+	        session.close();
+	    }
+	    
+	    public void updateCustomer(int customerId ,Customer theCustomer) {
+	        Session session = sessionFactory.openSession();
+	        session.beginTransaction();
+	        session.update(theCustomer);
+	        session.getTransaction().commit();	      
+	        session.close();
+	      
 	    }
 
 
-	    public Bank getCustomerById(int theId) {
-	        Session currentSession = sessionFactory.getCurrentSession();
-	        Bank theCustomer = currentSession.get(Bank.class, theId);
+	    public Customer getCustomerById(int customerId) {
+	        Session currentSession = sessionFactory.openSession();
+	        Customer theCustomer = currentSession.get(Customer.class, customerId);
+	        currentSession.close();
 	        return theCustomer;
 	    }
+
+	    
 }

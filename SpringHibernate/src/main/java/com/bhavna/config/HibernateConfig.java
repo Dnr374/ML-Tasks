@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -58,7 +59,12 @@ public class HibernateConfig {
     	return dataSource;
 
     }
-
+    @Bean
+    public HibernateTransactionManager transactionManager() {
+    HibernateTransactionManager transactionManager = new HibernateTransactionManager();
+    transactionManager.setSessionFactory(sessionFactory().getObject());
+    return transactionManager;
+    }
     private Properties hibernateProperties() {
     	
 //        Properties properties = new Properties();

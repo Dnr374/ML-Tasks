@@ -12,28 +12,35 @@ import com.bhavna.entity.Customer;
 
 //import com.bhavna.repository.EmpRepository;
 
-
+@Transactional
 @Service
-public class BankServiceImpl implements BankService {
+public class CustomerServiceImpl implements CustomerService {
 	 @Autowired
 	    private CustomerDao customerDAO;
 
 	    @Override
-	    @Transactional
+	   
 	    public List < Customer > getCustomers() {
 	        return customerDAO.getCustomers();
 	    }
 
 	    @Override
-	    @Transactional
-	    public void saveCustomer(Bank bank) {
-	    	customerDAO.saveCustomer(bank);
+	   
+	    public void saveCustomer(Customer customer) {
+	    	customerDAO.saveCustomer(customer);
 	    }
 
 	    @Override
-	    @Transactional
-	    public Bank getCustomer(int theId) {
+	
+	    public Customer getCustomer(int theId) {
 	        return customerDAO.getCustomerById(theId);
 	    }
+
+		@Override
+		public void updateCustomer(int customerId, Customer customer) {
+		  customerDAO.updateCustomer(customerId,customer);
+		}
+
+		
 
 }

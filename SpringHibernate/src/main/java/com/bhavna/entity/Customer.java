@@ -28,13 +28,9 @@ public class Customer {
 	private List<Bank> bank;
 
 
-	
-
 	public Integer getCustomerId() {
 		return customerId;
 	}
-
-
 
 
 	public void setCustomerId(Integer customerId) {
@@ -42,20 +38,14 @@ public class Customer {
 	}
 
 
-
-
 	public String getCustomerName() {
 		return customerName;
 	}
 
 
-
-
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
-
-
 
 
 	public List<Bank> getBank() {
